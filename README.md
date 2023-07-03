@@ -7,7 +7,7 @@ Auto Kill is a command-line tool that allows you to automatically kill processes
 To install Auto Kill, simply run:
 
 ```
-go get github.com/username/autokill
+go install github.com/aiocean/autokill
 ```
 
 ## Usage
@@ -18,3 +18,11 @@ The `autokill` command has several options that you can use to customize its beh
 ```
 autokill
 ```
+
+Run as daemon:
+
+```
+daemonize $(which autokill) -max-percent 200 -period 5s -allowed-names goland,webstorm
+```
+
+You can install daemonize at: https://software.clapper.org/daemonize/
