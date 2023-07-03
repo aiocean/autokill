@@ -2,11 +2,12 @@ package main
 
 import (
 	"flag"
-	"github.com/gen2brain/beeep"
 	"log"
 	"os/user"
 	"strings"
 	"time"
+
+	"github.com/gen2brain/beeep"
 
 	"github.com/shirou/gopsutil/v3/process"
 )

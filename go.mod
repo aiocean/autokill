@@ -2,10 +2,12 @@ module autokill
 
 go 1.20
 
-require github.com/shirou/gopsutil/v3 v3.23.6
+require (
+	github.com/gen2brain/beeep v0.0.0-20230602101333-f384c29b62dd
+	github.com/shirou/gopsutil/v3 v3.23.6
+)
 
 require (
-	github.com/gen2brain/beeep v0.0.0-20230602101333-f384c29b62dd // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-toast/toast v0.0.0-20190211030409-01e6764cf0a4 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
