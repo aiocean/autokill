@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+	"os/user"
 	"strings"
 	"time"
 
@@ -31,17 +32,35 @@ func main() {
 }
 
 func handle(maxPercent float64, allowedNames []string) {
+	currentUser, err := user.Current()
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
 	processes, err := process.Processes()
 	if err != nil {
 		log.Println(err)
 		return
 	}
 	for _, p := range processes {
+
+		username, err := p.Username()
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+
+		if username != currentUser.Username {
+			continue
+		}
+
 		percent, err := p.CPUPercent()
 		if err != nil {
 			log.Println(err)
 			continue
 		}
+
 		if percent <= maxPercent {
 			continue
 		}
