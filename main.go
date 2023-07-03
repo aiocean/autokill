@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"github.com/gen2brain/beeep"
 	"log"
 	"os/user"
 	"strings"
@@ -77,6 +78,10 @@ func handle(maxPercent float64, allowedNames []string) {
 
 		log.Printf("Killing %s, CPU: %f\n", name, percent)
 		if err := p.Kill(); err != nil {
+			log.Println(err)
+		}
+
+		if err := beeep.Notify("Autokill", "Killed "+name, ""); err != nil {
 			log.Println(err)
 		}
 	}
